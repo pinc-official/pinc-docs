@@ -7,7 +7,7 @@ sidebar_position: 1
 # Introduction
 
 Pinc is a template language, which inverses the flow of your data.
-In priniple it is possible to write CMS, which do not need any kind of configuration files anymore.
+In priniple it is possible to write content management systems or other applications, which do not need any kind of configuration files anymore.
 
 ## Your first Component
 
@@ -48,4 +48,21 @@ Both have a so called `Tag` assigned as their value, more specifically a String-
 
 Tags are the way for you to say "I want to get some value of a specific type". Read more about tags [here](#tags).
 
-....
+In our template, we can render variables by wrapping them in curly braces (`{}`) as seen with the `text` variable.
+With the `icon`, we use a string template, to append its value to the class attribute.
+
+## Rendering our Button component
+
+In another component we are now able to render our `Button` and change its text and icon value:
+
+```
+component App {
+    <main>
+        <Button icon="arrowRight" text="Click me!" />
+    </main>
+}
+```
+
+As you can see, we don't have to import our component anywhere. 
+
+Pinc resolves all components automatically by its name, which means that every component needs to have a unique name.
