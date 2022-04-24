@@ -95,3 +95,16 @@ for (i in 0..10) {
 
 // is_first is now false
 ```
+
+## Optional values
+
+Pinc fails compiling, when you try to add a `null` value to a let binding, which is not marked as nullable.
+To mark a declaration as nullable, you have to end its name with a `?`.
+
+For example:
+```
+let result = 10;
+let maybe_something? = if (result > 20) "Some value!";
+```
+
+The variable `maybe_something` has to be marked as nullable here, because we are only assigning a value to it, if the `result` is greater than 20.
