@@ -9,6 +9,7 @@ import TabItem from "@theme/TabItem";
 
 # Let Bindings
 
+
 `let` binds values to names. You might know them under the name "variable declarations".
 Let bindings are by defualt immutable, which means, that they can't be changed after they have been declared.
 
