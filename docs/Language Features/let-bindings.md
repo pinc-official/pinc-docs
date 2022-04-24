@@ -32,6 +32,19 @@ let result = result + 5;
 ```
 
 By shadowing a variable, you are essentially redeclaring the variable with the same name.
+You are however not changing the value of the first declaration.
+
+```
+let amount = 1;
+let add_amount = fn (num) -> {
+    amount + num
+};
+
+let amount = 5;
+let result = add_amount(2);
+```
+
+`result` will be 3, as the `add_amount` function still only knows about the first declaration. 
 
 
 ## Blocks and Scope
