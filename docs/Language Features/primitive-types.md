@@ -1,21 +1,31 @@
 ---
 id: primitive-types
 title: "Primitive Types"
-sidebar_position: 1
+sidebar_position: 2
 ---
-
-import Tabs from "@theme/Tabs";
-import TabItem from "@theme/TabItem";
 
 # Primitive Types
 
-
 ## String
+
+TODO!
 
 ## Boolean
 
+TODO!
+
 ## Int
+
+TODO!
 
 ## Float
 
+TODO!
 
+## Array
+
+TODO!
+
+## Record
+
+TODO!

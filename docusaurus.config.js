@@ -5,7 +5,7 @@ const darkCodeTheme = require("prism-react-renderer/themes/dracula");
 /** @type {import('@docusaurus/types').DocusaurusConfig} */
 (
   module.exports = {
-    title: "Pinc-Lang Docs",
+    title: "PiNC-Lang Docs",
     tagline: "",
     url: "https://pinc-lang.github.io",
     baseUrl: "/pinc-docs/",
@@ -38,7 +38,7 @@ const darkCodeTheme = require("prism-react-renderer/themes/dracula");
       /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
       ({
         navbar: {
-          title: "Pinc",
+          title: "PiNC",
           items: [
             {
               href: "https://github.com/pinc-lang",
