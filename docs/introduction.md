@@ -6,19 +6,17 @@ sidebar_position: 1
 
 # Introduction
 
-PiNC is a template language, which inverses the flow of your data. Instead of you needing to provide all data for your template beforehand,
-PiNC is asking for new data only when its needed.  <br />
-It's a bit like the difference between REST and GraphQL.
+pinc is a template language, which inverses the flow of your data. Instead of you needing to provide all data for your template beforehand, pinc is asking for new data only when its needed.
 
-PiNC also provides the integrating application (for example the CMS) with all information it needs to render a template. <br />
-So in priniple it is possible to write content management systems or other applications, which do not need any kind of configuration files anymore.
+pinc also provides the integrating application (for example the CMS) with all information it needs to render a template. <br />
+So in principle it is possible to write content management systems or other applications, which do not need any kind of configuration files for their templates anymore.
 
 ## Your first Component
 
 To create your first component, you first have to create a file with the `.pi` extention.
 
 :::info
-PiNC files neither need to be in a specific folder structure, nor specify how many components you declare inside of them. In theory, you could write your whole application inside of a single file.
+pinc files neither need to be in a specific folder structure, nor specify how many components you declare inside of them. In theory, you could write your whole application inside of a single file.
 :::
 
 Let's create a button as our first component:
@@ -44,7 +42,7 @@ component Button {
     let icon = #String(key: "icon");
 
     <button class="Button">
-        <span class="Button-icon Button-icon--{| icon |}">
+        <span class="Button-icon Button-icon--$(icon)">
         <span class="Button-text">{text}</span>
     </button>
 }
@@ -87,11 +85,11 @@ component Header {
 
 Components are rendered by using it's uppercase identifier as a html tag name. <br />
 All uppercase html tags are assumed to be components and are searched for in your application. <br />
-If they cannot be found, PiNC fails compiling.
+If they cannot be found, pinc fails compiling.
 
 :::info
 As you can see, we don't have to import our component anywhere. <br />
-PiNC resolves all components automatically by its name, which means that every component needs to have a unique name.
+pinc resolves all components automatically by its name, which means that every component needs to have a unique name.
 :::
 
 ## Using Slots
@@ -105,7 +103,7 @@ Let's define our slot and render it where our buttons should appear:
 
 ```pi title="Header.pi"
 component Header {
-    let actions = #Slot(name: "actions");
+    let actions = #Slot(key: "actions");
 
     <header class="Header">
         <img class="Header-logo" src="/path/to/logo.svg" />
@@ -135,7 +133,7 @@ component App {
 To put a Template-Node inside a slot, you place it between the opening and closing tag of the component and (optionally) add the `slot` attribute with the same name as the declared `#Slot`. <br />
 
 :::tip
-You may also add a `default`-Slot, by not adding a name to the `#Slot`-Tag. The default slots get all nodes passed in, which do not have a slot attribute.
+You may also add a `default`-Slot, by setting the key of the `#Slot` to an empty string (`""`). The default slots get all nodes passed in, which do not have a slot attribute.
 ```pi
 let default_slot = #Slot;
 ```
@@ -148,13 +146,13 @@ Let's add a restriction, so you are only able to place `Button` components insid
 
 ```pi title="Header.pi"
 component Header {
-    let actions = #Slot(name: "actions", instanceOf: [Button]);
+    let actions = #Slot(key: "actions", constraints: [Button]);
 
     // ...
 }
 ```
 
-We now added an `instanceOf` attribute to our `#Slot`, with which we may declare a set of restrictions for this slot. <br />
+We now added an `constraints` attribute to our `#Slot`, with which we may declare a set of restrictions for this slot. <br />
 You are able to allow a set of components by adding them to the instance array. As soon as you do that, all other components and html-tags are automatically disallowed. <br />
 If you want to disallow a set of components and allow everything else, you have to prefix the component name with a `!`. <br />
 
@@ -162,10 +160,10 @@ If you want to disallow a set of components and allow everything else, you have 
 
 ```pi
 // allow only Button and Link components:
-let allow = #Slot(instanceOf: [Button, Link]);
+let allow = #Slot(constraints: [Button, Link]);
 
 // allow everything but Button and Link components:
-let disallow = #Slot(instanceOf: [!Button, !Link]);
+let disallow = #Slot(constraints: [!Button, !Link]);
 ```
 
 With that change, our Header is only able to recieve `Button` components and fails compiling, when you try to put some other component inside it's actions slot.

@@ -17,7 +17,7 @@ let newAmount = 10 + amount;
 
 ## Optional values
 
-PiNC fails compiling, when you try to add a `null` value to a let binding, which is not marked as nullable. <br />
+pinc fails compiling, when you try to add a `null` value to a let binding, which is not marked as nullable. <br />
 To mark a declaration as nullable, you have to end its name with a `?`.
 
 For example:
@@ -108,7 +108,7 @@ for (i in 0..10) {
 ```
 
 :::caution
-In PiNC you are able to express a lot of things witout the need for mutation! <br />
+In pinc you are able to express a lot of things witout the need for mutation! <br />
 We do recommend to only use mutable values when you really need them. <br />
 Having a lot of mutable values may slow down the compiler, resulting in slower response times of your website.
 :::
