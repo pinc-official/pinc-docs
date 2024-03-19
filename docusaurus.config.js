@@ -37,6 +37,13 @@ module.exports = {
     /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
     ({
       navbar: {
+        logo: {
+          alt: "pinc",
+          src: "logo.png",
+          srcDark: "logo.png",
+          width: 32,
+          height: 32,
+        },
         title: "pinc",
         items: [
           {
