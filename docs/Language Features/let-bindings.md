@@ -1,6 +1,6 @@
 ---
 id: let-bindings
-title: "Let Bindings"
+title: 'Let Bindings'
 sidebar_position: 1
 ---
 
@@ -9,7 +9,7 @@ sidebar_position: 1
 `let` binds values to names. You might know them under the name "variable declarations". <br /> Let bindings are
 immutable by defualt, which means, that they can't be changed after they have been declared.
 
-```
+```pi
 let greeting = "hello!";
 let amount = 10;
 let newAmount = 10 + amount;
@@ -22,7 +22,7 @@ mark a declaration as nullable, you have to end its name with a `?`.
 
 For example:
 
-```
+```pi
 let result = 10;
 let maybe_something? = if (result > 20) "Some value!";
 ```

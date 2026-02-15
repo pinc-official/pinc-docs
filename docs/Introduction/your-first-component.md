@@ -1,6 +1,6 @@
 ---
 slug: /your-first-component
-title: "Your first Component"
+title: 'Your first Component'
 sidebar_position: 1
 ---
 
@@ -23,7 +23,7 @@ Every component needs to start with the `component` keyword, and has to be given
 ```pi title="Button.pi" showLineNumbers
 component Button {
   <button class="Button">
-    <span class="Button-icon Button-icon--arrowRight">
+    <span class="Button-icon Button-icon--arrowRight" />
     <span class="Button-text">Click me!</span>
   </button>
 }
