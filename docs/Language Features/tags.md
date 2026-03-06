@@ -294,6 +294,8 @@ let teaser = #Image(key: "teaser");
 
 - `key`: `string`
 - `label`: `string`
+- `width`: `int`
+- `height`: `int`
 
 **Returns:**
 
